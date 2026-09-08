@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <h1>{{ t('products') }}</h1>
+    <h1>{{ t('wallet') }}</h1>
   </q-page>
 </template>
 <script setup lang="ts">
