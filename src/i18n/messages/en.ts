@@ -6,4 +6,6 @@ export default {
   wallet: 'wallet',
   show_products: 'show product',
   users: 'users',
+  welcome: 'welcome to our store',
+  find: 'find everything you need in one place',
 };

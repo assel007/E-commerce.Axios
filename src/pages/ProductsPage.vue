@@ -1,6 +1,6 @@
 <template>
-  <q-page class="q-pa-md">
-    <h1>{{ t('products') }}</h1>
+  <q-page class="q-p-md">
+    <h1 class="title">{{ t('products') }} :</h1>
 
     <div class="row q-col-gutter-md">
       <div v-for="photo in photos" :key="photo.id" class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -32,3 +32,8 @@ onMounted(async () => {
   photos.value = response.data.slice(0, 40);
 });
 </script>
+<style scoped>
+.title {
+  margin-left: 30px;
+}
+</style>
