@@ -5,4 +5,5 @@ export default {
   cart: 'السله',
   home: 'الصفحه الرئيسيه',
   show_products: 'عرض المنتجات ',
+  users: 'المستخدمين',
 };

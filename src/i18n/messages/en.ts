@@ -5,4 +5,5 @@ export default {
   products: 'prodrct',
   wallet: 'wallet',
   show_products: 'show product',
+  users: 'users',
 };

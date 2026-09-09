@@ -15,6 +15,7 @@
           />
           <q-btn text-color="warning" rounded color="primary" :label="t('cart')" to="/Cart" />
           <q-btn text-color="warning" rounded color="primary" :label="t('wallet')" to="/Wallet" />
+          <q-btn text-color="warning" rounded color="primary" :label="t('users')" to="/users" />
           <q-btn
             text-color="warning"
             rounded
