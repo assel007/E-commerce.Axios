@@ -20,7 +20,7 @@
             text-color="warning"
             rounded
             color="primary"
-            @click="ChangeLangrage"
+            @click="ChangeLanguage"
             :label="locale === 'en-US' ? 'ENGLISH' : 'عربيه'"
           />
         </q-btn-group>
@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 const { locale, t } = useI18n();
-const ChangeLangrage = () => {
+const ChangeLanguage = () => {
   locale.value = locale.value === 'en-US' ? 'ar' : 'en-US';
 };
 </script>
