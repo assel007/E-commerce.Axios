@@ -8,4 +8,6 @@ export default {
   users: 'users',
   welcome: 'welcome to our store',
   find: 'find everything you need in one place',
+  add_to_cart: 'add to cart',
+  empty_cart: 'emptying cart',
 };

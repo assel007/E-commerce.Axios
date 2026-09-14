@@ -1,5 +1,13 @@
 import { defineStore } from 'pinia';
 
+export interface Product {
+  name: string;
+  price: number;
+  image?: string;
+}
+
+export type Products = Product;
+
 export const useProductsStore = defineStore('Products', {
   state: () => ({
     products: Array.from({ length: 39 }, (_, index) => ({

@@ -10,6 +10,9 @@
             <div class="product-name">{{ product.name }}</div>
             <div class="product-price">{{ product.price }} $</div>
           </q-card-section>
+          <q-card-section>
+            <q-btn class="butten" :label="t('add_to_cart')" @click="addToCart(product)" />
+          </q-card-section>
         </q-card>
       </div>
     </div>
@@ -19,8 +22,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { getPhotos } from '../services';
+import { getPhotos } from '../services/photos.services';
 import type { Photo } from '../types';
+import { useCartStore } from '../stores/Cart-store';
 
 interface ProductWithPhoto extends Photo {
   name: string;
@@ -29,6 +33,7 @@ interface ProductWithPhoto extends Photo {
 }
 
 const { t } = useI18n();
+const cartStore = useCartStore();
 const products = ref<ProductWithPhoto[]>([]);
 const getPhotoSrc = (photo: Photo) => `https://picsum.photos/id/${photo.id}/300/300`;
 
@@ -61,6 +66,14 @@ onMounted(async () => {
     };
   });
 });
+
+const addToCart = (product: ProductWithPhoto) => {
+  cartStore.addToCart({
+    name: product.name,
+    price: product.price,
+    image: product.image,
+  });
+};
 </script>
 <style scoped>
 .title {

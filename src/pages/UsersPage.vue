@@ -23,7 +23,7 @@
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { getUsers } from '../services';
+import { getUsers } from '../services/user.services';
 import { useI18n } from 'vue-i18n';
 import type { User } from '../types';
 
