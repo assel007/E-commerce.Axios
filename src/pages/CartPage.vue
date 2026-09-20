@@ -15,8 +15,10 @@
       </div>
 
       <div class="total-price">Total: {{ cartStore.totalPrice }} $</div>
-
-      <q-btn class="button" :label="t('empty_cart')" @click="cartStore.clearCart()" />
+      <div class="button-contaner">
+        <q-btn class="button" :label="t('empty_cart')" @click="cartStore.clearCart()" />
+        <q-btn class="button" :label="t('pay_product')" @click="payCart" />
+      </div>
     </div>
   </q-page>
 </template>
@@ -24,9 +26,25 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { useCartStore } from '../stores/Cart-store';
+import { useWalletStore } from '@/stores/wallet-store';
 
 const { t } = useI18n();
 const cartStore = useCartStore();
+const walletStore = useWalletStore();
+
+const payCart = () => {
+  const total = cartStore.totalPrice;
+
+  if (total <= 0) {
+    return;
+  }
+
+  const paid = walletStore.pay(total);
+
+  if (paid) {
+    cartStore.clearCart();
+  }
+};
 </script>
 
 <style scoped>
@@ -81,5 +99,10 @@ const cartStore = useCartStore();
   border: solid white 1px;
   border-radius: 8px;
   margin-top: 20px;
+}
+.button-contaner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 </style>

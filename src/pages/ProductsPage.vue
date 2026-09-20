@@ -7,11 +7,11 @@
           <q-img :src="product.image" :alt="product.title" ratio="1" />
 
           <q-card-section class="product-info">
-            <div class="product-name">{{ product.name }}</div>
-            <div class="product-price">{{ product.price }} $</div>
-          </q-card-section>
-          <q-card-section>
-            <q-btn class="butten" :label="t('add_to_cart')" @click="addToCart(product)" />
+            <div>
+              <div class="product-name">{{ product.name }}</div>
+              <div class="product-price">{{ product.price }} $</div>
+            </div>
+            <q-btn class="button" :label="t('add_to_cart')" @click="addToCart(product)" />
           </q-card-section>
         </q-card>
       </div>
@@ -93,19 +93,33 @@ const addToCart = (product: ProductWithPhoto) => {
   background: var(--q-primary);
   padding: 12px 16px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .product-name {
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 700;
   margin-bottom: 4px;
   text-transform: capitalize;
   color: #f2c037;
+  margin-left: 10px;
 }
 
 .product-price {
   color: #f2c037;
   font-weight: 600;
   font-size: 30px;
+  margin-left: 10px;
+}
+.button {
+  background-color: rgb(27, 27, 25);
+  height: 80px;
+  width: 200px;
+  margin-top: 14px;
+  border: solid white 1px;
+  border-radius: 10px;
+  font-size: 20px;
 }
 </style>

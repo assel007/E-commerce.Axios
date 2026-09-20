@@ -10,4 +10,5 @@ export default {
   find: 'اعثر على كل ما تحتاجه في مكان واحد',
   add_to_cart: 'اضافه للسله',
   empty_cart: 'افراغ السله',
+  pay_product: 'شراء المنتجات',
 };

@@ -42,12 +42,13 @@ const ChangeLanguage = () => {
   color: #f2c037;
 }
 .navbar-title {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 500;
 }
 .navbar-actions :deep(.q-btn) {
   min-height: 52px;
   padding: 0 18px;
-  font-size: 1.1rem;
+  font-size: 20px;
+  font-weight: 500;
 }
 </style>

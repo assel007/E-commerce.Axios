@@ -2,24 +2,24 @@
   <q-page>
     <h1 class="title">{{ t('wallet') }} :</h1>
     <div class="page-container">
-      <p class="parg">Choose a payment method</p>
+      <p class="parg">fill your wallet</p>
       <div class="box-container">
-        <div class="away-container">
+        <div class="fill-container">
           <form>
             <div class="form">
               <label>inter your bank number </label>
-              <input class="input" />
+              <input class="input" v-model="bankNumber" />
             </div>
             <div class="form">
               <label>inter the Amount </label>
-              <input class="input" />
+              <input class="input" type="number" v-model="amount" />
             </div>
           </form>
-          <q-btn class="button" label="Top Up Wallet" />
+          <q-btn class="button" label="Top Up Wallet" @click="addToBalance" />
         </div>
         <div class="wallet-balance">
           <p class="balance">your balance</p>
-          <p></p>
+          <p class="balance">{{ walletStore.balance }}</p>
         </div>
       </div>
     </div>
@@ -27,7 +27,32 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
+import { ref } from 'vue';
+import { useWalletStore } from '../stores/wallet-store';
+
 const { t } = useI18n();
+
+const walletStore = useWalletStore();
+
+const bankNumber = ref('');
+const amount = ref('');
+
+const addToBalance = () => {
+  const value = Number(amount.value);
+
+  if (!bankNumber.value || !Number.isFinite(value) || value <= 0) {
+    return;
+  }
+
+  walletStore.addMoney(value);
+  localStorage.setItem('bankNumber', bankNumber.value);
+  localStorage.setItem('amount', amount.value);
+
+  console.log('Bank Number:', bankNumber.value);
+  console.log('Amount:', amount.value);
+  amount.value = '';
+  bankNumber.value = '';
+};
 </script>
 <style lang="css" scoped>
 .page-container {
@@ -38,12 +63,15 @@ const { t } = useI18n();
 
 .title {
   margin: 30px;
+  font-size: 100px;
+  font-weight: 500;
 }
 .parg {
-  font-size: 70px;
+  font-size: 100px;
   margin-bottom: 40px;
+  font-weight: 500;
 }
-.away-container {
+.fill-container {
   min-height: 500px;
   width: 80%;
   margin-top: 30px;

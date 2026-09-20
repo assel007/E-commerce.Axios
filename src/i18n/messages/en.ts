@@ -10,4 +10,5 @@ export default {
   find: 'find everything you need in one place',
   add_to_cart: 'add to cart',
   empty_cart: 'emptying cart',
+  pay_product: 'pay product',
 };
