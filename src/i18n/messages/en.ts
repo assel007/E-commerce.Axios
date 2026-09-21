@@ -1,7 +1,7 @@
 export default {
   dragon_store: 'dragon store',
   home: 'home',
-  cart: 'cart',
+  cart_is_empty: 'cart is empty',
   products: 'prodrct',
   wallet: 'wallet',
   show_products: 'show product',
@@ -11,4 +11,10 @@ export default {
   add_to_cart: 'add to cart',
   empty_cart: 'emptying cart',
   pay_product: 'pay product',
+  cart: 'cart',
+  total: 'total',
+  fill_your_wallet: 'fill your wallet',
+  inter_your_banknumber: ' inter your bank number ',
+  inter_the_amount: 'intet the amount',
+  your_balance: 'your balance',
 };

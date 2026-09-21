@@ -2,7 +2,7 @@
   <q-page class="q-pa-md">
     <h1 class="title">{{ t('cart') }} :</h1>
 
-    <div v-if="cartStore.cartItems.length === 0" class="empty-cart">{{ t('cart') }} is empty</div>
+    <div v-if="cartStore.cartItems.length === 0" class="empty-cart">{{ t('cart_is_empty') }}</div>
 
     <div v-else class="cart-list">
       <div v-for="item in cartStore.cartItems" :key="item.name" class="cart-item">
@@ -14,7 +14,7 @@
         <div class="item-quantity">Quantity: {{ item.quantity }}</div>
       </div>
 
-      <div class="total-price">Total: {{ cartStore.totalPrice }} $</div>
+      <div class="total-price">{{ t('total') }}{{ cartStore.totalPrice }} $</div>
       <div class="button-contaner">
         <q-btn class="button" :label="t('empty_cart')" @click="cartStore.clearCart()" />
         <q-btn class="button" :label="t('pay_product')" @click="payCart" />

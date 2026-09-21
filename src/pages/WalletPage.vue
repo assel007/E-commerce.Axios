@@ -2,23 +2,23 @@
   <q-page>
     <h1 class="title">{{ t('wallet') }} :</h1>
     <div class="page-container">
-      <p class="parg">fill your wallet</p>
+      <p class="parg">{{ t('fill_your_wallet') }}</p>
       <div class="box-container">
         <div class="fill-container">
           <form>
             <div class="form">
-              <label>inter your bank number </label>
+              <label> {{ t('inter_your_banknumber') }} </label>
               <input class="input" v-model="bankNumber" />
             </div>
             <div class="form">
-              <label>inter the Amount </label>
+              <label>{{ t('inter_the_amount') }} </label>
               <input class="input" type="number" v-model="amount" />
             </div>
           </form>
-          <q-btn class="button" label="Top Up Wallet" @click="addToBalance" />
+          <q-btn class="button" :label="t('fill_your_wallet')" @click="addToBalance" />
         </div>
         <div class="wallet-balance">
-          <p class="balance">your balance</p>
+          <p class="balance">{{ t('your_balance') }}</p>
           <p class="balance">{{ walletStore.balance }}</p>
         </div>
       </div>
@@ -84,8 +84,8 @@ const addToBalance = () => {
   font-size: 30px;
 }
 .button {
-  width: 200px;
-  height: 50px;
+  width: 250px;
+  height: 70px;
   font-size: 20px;
   background-color: #444343;
   border: solid white 2px;
